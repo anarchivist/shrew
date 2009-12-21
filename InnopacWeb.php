@@ -916,8 +916,8 @@ class InnopacWeb
 		$strMarc = $this->removeRight( $strMarc, "</pre>" );
 		
 		// remove break-tabs for easier parsing
-
-		$strMarc = str_replace( "\n       ", "", $strMarc );
+		
+    $strMarc = str_replace( "\n       ", "", $strMarc );
 		$strMarc = trim( $strMarc );
 		
 		// assign the marc values to the array based on Unix LF as delimiter
@@ -939,7 +939,7 @@ class InnopacWeb
 			// assign data and clean it up
 
 			$strData = substr( $strTag, 7 );
-			$strData = utf8_encode( $strData );
+			$strData = mb_convert_encoding( $strData, "UTF-8" );
 			$strData = $this->escapeXml( $strData );
 			$strData = trim( $strData );
 			
